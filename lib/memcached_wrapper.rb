@@ -13,6 +13,28 @@ if defined? MemCache
 Rails.logger.info("cache-money: MemCache installed") if defined? Rails
 #TODO add logging?
 class MemcachedWrapper < ::MemCache
+  attr_reader :default_ttl
+
+  def initialize(*args)
+    super
+    @default_ttl = 0
+  end
+
+  def add(key, value, ttl=@default_ttl, raw=false)
+    super
+  end
+
+  def replace(key, value, ttl=@default_ttl, raw=false)
+    super
+  end
+
+  def cas(key, ttl=@default_ttl, raw=false, &block)
+    super
+  end
+
+  def set(key, value, ttl=@default_ttl, raw=false)
+    super
+  end
 end
 
 ########## they have Memcached installed (do need the wrapper)
